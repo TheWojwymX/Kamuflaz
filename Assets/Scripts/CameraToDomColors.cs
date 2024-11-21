@@ -15,7 +15,7 @@ public class CameraToDomColors : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        renderTexture = new RenderTexture(128, 128, 24);
+        renderTexture = new RenderTexture(256, 256, 24);
         cam.targetTexture = renderTexture;
         
         StartCoroutine(CaptureAndProcessImages());
@@ -54,7 +54,7 @@ public class CameraToDomColors : MonoBehaviour
                 }
 
                 // Generate camouflage texture and save it
-                Texture2D camouflagedTexture = GenerateCamouflageTexture(dominantColors, 128, 128, 4);
+                Texture2D camouflagedTexture = GenerateCamouflageTexture(dominantColors, 1024, 1024, 2);
                 //Texture2D smoothedTexture = ApplyErosionAndDilation(camouflagedTexture);
                 //SaveTextureAsPNG(smoothedTexture, "SmoothedCamouflage.png");
                 SaveTextureAsPNG(camouflagedTexture, "CamouflageTexture.png");
